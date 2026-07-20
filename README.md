@@ -1,6 +1,6 @@
 # ActionGuard AutoAudit
 
-**Detection → Evidence → Severity → Suggested fix → Patch preview → Final report → Email notification**
+**Detection -> Evidence -> Severity -> Suggested fix -> Patch preview -> Final report -> Email notification**
 
 ActionGuard extends [zizmor](https://github.com/zizmorcore/zizmor) with agentic workflow-injection rules, committed environment and secret detection, artifact upload checks, code-quality/dependency integrations, normalized risk scoring, remediation planning, self-contained HTML/JSON reporting, optional email, and GitHub Actions automation.
 
@@ -30,20 +30,20 @@ Add `--email` to send the HTML report when `MAIL_USERNAME`, `MAIL_PASSWORD`, and
 
 ```text
 GitHub push / PR / manual dispatch
-  → checkout (contents: read)
-  → ActionGuard orchestrator
-      ├─ zizmor GitHub Actions audit
-      ├─ 5 agentic AI rules
-      ├─ env + secret redaction audit
-      ├─ artifact upload audit
-      ├─ Ruff + Bandit
-      ├─ npm audit + pip-audit
-      └─ repository hygiene
-  → normalized Finding[]
-  → category + overall scores
-  → remediation and patch previews
-  → self-contained HTML + JSON
-  → 7-day GitHub artifact + optional SMTP email
+  -> checkout (contents: read)
+  -> ActionGuard orchestrator
+      - zizmor GitHub Actions audit
+      - 5 agentic AI rules
+      - env + secret redaction audit
+      - artifact upload audit
+      - Ruff + Bandit
+      - npm audit + pip-audit
+      - repository hygiene
+  -> normalized Finding[]
+  -> category + overall scores
+  -> remediation and patch previews
+  -> self-contained HTML + JSON
+  -> 7-day GitHub artifact + optional SMTP email
 ```
 
 ## Safety model
@@ -61,6 +61,10 @@ actionguard audit examples/demo-vulnerable-repo \
 ```
 
 Expected top findings include AI-generated shell execution, write-all permissions, untrusted comment input, secret exposure, whole-repository artifact upload, and long retention.
+
+The demo intentionally commits fake seeded credentials in `examples/demo-vulnerable-repo/.env` so secret detection and redaction can be reproduced. These values are non-functional and must not be replaced with real credentials.
+
+`reports/demo-report.html`, `reports/demo-report-rerendered.html`, and `reports/demo-report.json` are committed demo artifacts even though normal generated reports are ignored by `.gitignore`.
 
 ## Tests
 

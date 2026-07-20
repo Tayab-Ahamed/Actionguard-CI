@@ -21,7 +21,10 @@ def scan(repo_path: Path):
                 sev=Severity.CRITICAL if write or secrets else Severity.HIGH
                 out.append(Finding('AG-AI-001','actionguard','agentic',sev,'Untrusted event text reaches an AI agent',rp,line(text,untrusted[0]),'Untrusted contexts: '+', '.join(untrusted),'An attacker can steer an agent through issue, PR, or comment content.','Treat event text as untrusted data, delimit it, validate instructions, and isolate the agent in a read-only job.',True,False,'# Pass untrusted content through a validated data file; keep the agent job read-only.'))
             runs='\n'.join(str(s.get('run','')) for s in (job.get('steps',[]) or []))
-            if re.search(r'(agent|llm|openai|anthropic|gemini).*?>\s*commands\.sh',runs,re.I|re.S) and re.search(r'(?:bash|sh)\s+commands\.sh|\./commands\.sh',runs,re.I) or re.search(r'eval\s+["\']?\$\([^)]*(?:agent|llm)',runs,re.I):
+            writes_agent_commands = re.search(r'(agent|llm|openai|anthropic|gemini).*?>\s*commands\.sh', runs, re.I | re.S)
+            executes_commands = re.search(r'(?:bash|sh)\s+commands\.sh|\./commands\.sh', runs, re.I)
+            evals_agent_output = re.search(r'eval\s+["\']?\$\([^)]*(?:agent|llm)', runs, re.I)
+            if (writes_agent_commands and executes_commands) or evals_agent_output:
                 out.append(Finding('AG-AI-002','actionguard','agentic',Severity.CRITICAL,'AI output is executed as shell',rp,line(text,'commands.sh'),'Agent output is written to or evaluated by a shell.','Prompt injection can become arbitrary code execution.','Never execute model output. Use a strict typed allowlist and require human approval for privileged operations.',True,False,'- bash commands.sh\n+ python validate_plan.py commands.json\n+ # require_environment_approval'))
             cond=str(job.get('if',''))
             if ('issue_comment' in trigger or 'issue_comment' in text) and 'github.event.comment.body' in cond and 'author_association' not in cond:
