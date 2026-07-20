@@ -30,7 +30,7 @@ jobs:
         run: python -m actionguard.cli audit . --html reports/actionguard-report.html --json reports/actionguard-report.json --email
       - name: Upload audit reports
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: actionguard-audit-report
           path: |
