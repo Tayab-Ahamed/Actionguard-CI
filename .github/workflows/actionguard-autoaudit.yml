@@ -1,0 +1,47 @@
+name: ActionGuard AutoAudit
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install zizmor CLI scanner
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release download -R zizmorcore/zizmor -p "*linux*gz" --dir /tmp 2>/dev/null && tar -xzf /tmp/*.tar.gz -C /tmp 2>/dev/null && sudo mv /tmp/zizmor /usr/local/bin/ 2>/dev/null || true
+      - name: Install ActionGuard and scanners
+        run: |
+          python -m pip install --upgrade pip setuptools wheel
+          pip install -e '.[dev]'
+      - name: Run unit tests
+        run: pytest -q
+      - name: Run complete audit
+        env:
+          MAIL_USERNAME: ${{ secrets.MAIL_USERNAME }}
+          MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }}
+          REPORT_TO_EMAIL: ${{ secrets.REPORT_TO_EMAIL }}
+        run: python -m actionguard.cli audit . --html reports/actionguard-report.html --json reports/actionguard-report.json --email
+      - name: Upload audit reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: actionguard-audit-report
+          path: |
+            reports/actionguard-report.html
+            reports/actionguard-report.json
+          if-no-files-found: ignore
+          retention-days: 7

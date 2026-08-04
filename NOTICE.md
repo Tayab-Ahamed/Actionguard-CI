@@ -1,0 +1,1 @@
+ActionGuard AutoAudit integrates with the zizmor command-line scanner from https://github.com/zizmorcore/zizmor. zizmor is Copyright its contributors and distributed under its upstream license. This repository does not claim ownership of zizmor and does not silently copy or rebrand its audit rules.

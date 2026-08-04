@@ -1,0 +1,24 @@
+[build-system]
+requires=["setuptools>=68"]
+build-backend="setuptools.build_meta"
+[project]
+name="actionguard-autoaudit"
+version="0.1.0"
+description="Automated GitHub CI/CD security audit and remediation reporting"
+readme="README.md"
+license={text="MIT"}
+requires-python=">=3.10"
+dependencies=["PyYAML>=6.0"]
+[project.optional-dependencies]
+dev=["pytest>=8","ruff","bandit","pip-audit"]
+[project.scripts]
+actionguard="actionguard.cli:main"
+[tool.pytest.ini_options]
+testpaths=["tests"]
+
+[tool.setuptools.packages.find]
+where=["."]
+include=["actionguard*"]
+
+[tool.ruff]
+line-length=120

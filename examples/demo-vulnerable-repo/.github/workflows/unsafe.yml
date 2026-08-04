@@ -1,0 +1,20 @@
+name: Unsafe AI Deploy
+on: issue_comment
+permissions: write-all
+jobs:
+  ai_deploy:
+    runs-on: ubuntu-latest
+    if: contains(github.event.comment.body, '/deploy')
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run AI deployment agent
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          python agent.py "${{ github.event.comment.body }}" > commands.sh
+          bash commands.sh
+      - uses: actions/upload-artifact@v4
+        with:
+          name: repo-dump
+          path: .
+          retention-days: 90

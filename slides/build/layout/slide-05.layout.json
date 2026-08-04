@@ -1,0 +1,248 @@
+{
+  "schema": "local.presentation.layout/v2",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/s05e00",
+    "id": "5",
+    "slide": 5,
+    "role": "table",
+    "recipeId": "table-led",
+    "recipeGroup": "table-evidence",
+    "contentLoad": "high",
+    "structureKey": "title-table-takeaway",
+    "recipeSource": "notion-ppt-slide-recipes",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "Notion Native PPTX",
+    "colors": {
+      "bg1": "#FFFFFF",
+      "bg2": "#F0EFED",
+      "lt1": "#FFFFFF",
+      "lt2": "#F9F8F7",
+      "tx1": "#2C2C2B",
+      "tx2": "#FFFFFF",
+      "dk1": "#2C2C2B",
+      "dk2": "#7D7A75",
+      "panel": "#F0EFED",
+      "rule": "#B8BCC4",
+      "accent": "#2783DE",
+      "accentSoft": "#E5F2FC",
+      "accentMuted": "#A9CEF5"
+    },
+    "typefaces": [
+      "Arial"
+    ]
+  },
+  "inheritedLayers": [],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/s05e01",
+      "id": "1",
+      "name": "Section label",
+      "semanticRole": "label",
+      "bbox": [
+        72,
+        72,
+        620,
+        26
+      ],
+      "frame": {
+        "left": 72,
+        "top": 72,
+        "width": 620,
+        "height": 26
+      },
+      "text": "MVP COVERAGE",
+      "textPreview": "MVP COVERAGE",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "fontSize": 14,
+        "typeface": "Arial",
+        "color": "#7D7A75",
+        "bold": true
+      },
+      "lineColor": "#D8D6D1",
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/s05e02",
+      "id": "2",
+      "name": "Title accent",
+      "semanticRole": "indicator",
+      "bbox": [
+        72,
+        106,
+        44,
+        4
+      ],
+      "frame": {
+        "left": 72,
+        "top": 106,
+        "width": 44,
+        "height": 4
+      },
+      "geometry": "rect",
+      "resolvedFontSize": 0,
+      "fillColor": "#2783DE",
+      "lineColor": "#2783DE",
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/s05e03",
+      "id": "3",
+      "name": "Slide title",
+      "semanticRole": "title",
+      "bbox": [
+        72,
+        124,
+        1136,
+        92
+      ],
+      "frame": {
+        "left": 72,
+        "top": 124,
+        "width": 1136,
+        "height": 92
+      },
+      "text": "Thirteen modules, one normalized result",
+      "textPreview": "Thirteen modules, one normalized result",
+      "resolvedFontSize": 40,
+      "resolvedTextStyle": {
+        "fontSize": 40,
+        "typeface": "Arial",
+        "color": "#2C2C2B",
+        "bold": true
+      },
+      "lineColor": "#D8D6D1",
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/s05e04",
+      "id": "4",
+      "bbox": [
+        72,
+        224,
+        1000,
+        34
+      ],
+      "frame": {
+        "left": 72,
+        "top": 224,
+        "width": 1000,
+        "height": 34
+      },
+      "text": "Tool failures are isolated and recorded.",
+      "textPreview": "Tool failures are isolated and recorded.",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "fontSize": 22,
+        "typeface": "Arial",
+        "color": "#2C2C2B",
+        "bold": true
+      },
+      "lineColor": "#D8D6D1",
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "table",
+      "scope": "slide",
+      "aid": "tb/s05e05",
+      "id": "5",
+      "name": "Evidence table",
+      "semanticRole": "table",
+      "bbox": [
+        72,
+        280,
+        1136,
+        280
+      ],
+      "frame": {
+        "left": 72,
+        "top": 280,
+        "width": 1136,
+        "height": 280
+      },
+      "text": "GitHub Actions | zizmor JSON v1 | Rule, file, line, severity\nSecrets & env | 9 patterns + file policy | Redacted evidence\nArtifacts | Workflow-aware YAML rules | Safe upload patch\nCode & dependencies | Ruff, Bandit, npm, pip-audit | Non-blocking status\nRepository hygiene | Required-file checks | Templates and priorities",
+      "textPreview": "GitHub Actions | zizmor JSON v1 | Rule, file, line, severity | Secrets & env | 9 patterns + file policy | Redacted evidence | Artifacts | W...",
+      "resolvedTextStyle": {},
+      "rows": 5,
+      "cols": 3,
+      "cells": [
+        [
+          {
+            "text": "GitHub Actions"
+          },
+          {
+            "text": "zizmor JSON v1"
+          },
+          {
+            "text": "Rule, file, line, severity"
+          }
+        ],
+        [
+          {
+            "text": "Secrets & env"
+          },
+          {
+            "text": "9 patterns + file policy"
+          },
+          {
+            "text": "Redacted evidence"
+          }
+        ],
+        [
+          {
+            "text": "Artifacts"
+          },
+          {
+            "text": "Workflow-aware YAML rules"
+          },
+          {
+            "text": "Safe upload patch"
+          }
+        ],
+        [
+          {
+            "text": "Code & dependencies"
+          },
+          {
+            "text": "Ruff, Bandit, npm, pip-audit"
+          },
+          {
+            "text": "Non-blocking status"
+          }
+        ],
+        [
+          {
+            "text": "Repository hygiene"
+          },
+          {
+            "text": "Required-file checks"
+          },
+          {
+            "text": "Templates and priorities"
+          }
+        ]
+      ]
+    }
+  ]
+}
