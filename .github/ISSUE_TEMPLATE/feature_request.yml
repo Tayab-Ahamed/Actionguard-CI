@@ -1,0 +1,26 @@
+﻿name: 💡 Feature Request
+description: Propose a new security rule or scanner integration for ActionGuard
+labels: ["enhancement"]
+body:
+  - type: markdown
+    attributes:
+      value: Thank you for suggesting an enhancement for ActionGuard!
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem / Motivation
+      placeholder: Is your feature request related to a problem or new attack vector?
+    validations:
+      required: true
+  - type: textarea
+    id: solution
+    attributes:
+      label: Proposed Solution
+      placeholder: Describe the rule, detection logic, or remediation output.
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      placeholder: Any alternative solutions or workarounds considered?
