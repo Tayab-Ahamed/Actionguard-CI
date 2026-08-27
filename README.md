@@ -145,6 +145,15 @@ pytest -q
 
 ---
 
+## 🤝 Contributing
+
+Contributions are very welcome! Whether it's adding new security rules, improving report visualizations, or integrating additional static analysis scanners:
+
+1. Check out our [Contributing Guide](CONTRIBUTING.md) for local setup and testing instructions.
+2. Open an issue or pull request using our templates.
+
+---
+
 ## 📜 Upstream Attribution & License
 
 ActionGuard uses [zizmor](https://github.com/zizmorcore/zizmor) as its core GitHub Actions scanner integration under its upstream license. See [NOTICE.md](NOTICE.md).
