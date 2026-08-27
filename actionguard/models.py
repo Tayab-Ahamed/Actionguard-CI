@@ -2,8 +2,14 @@ from dataclasses import asdict, dataclass, field
 from enum import Enum
 from typing import Any
 
+
 class Severity(str, Enum):
-    CRITICAL="critical"; HIGH="high"; MEDIUM="medium"; LOW="low"; INFO="info"
+    CRITICAL = "critical"
+    HIGH = "high"
+    MEDIUM = "medium"
+    LOW = "low"
+    INFO = "info"
+
 
 @dataclass
 class Finding:
@@ -22,5 +28,8 @@ class Finding:
     patch_preview: str = ""
     manual_review_required: bool = True
     metadata: dict[str, Any] = field(default_factory=dict)
+
     def to_dict(self):
-        d=asdict(self); d['severity']=self.severity.value; return d
+        d = asdict(self)
+        d["severity"] = self.severity.value
+        return d

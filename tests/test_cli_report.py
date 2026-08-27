@@ -50,4 +50,3 @@ def test_cli_report_rerender(tmp_path: Path):
     assert main(["audit", str(tmp_path), "--json", str(json_path), "--html", str(html_path)]) == 0
     assert main(["report", "--json", str(json_path), "--html", str(rerender_html)]) == 0
     assert rerender_html.exists()
-
