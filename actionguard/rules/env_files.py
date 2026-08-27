@@ -1,6 +1,7 @@
 from pathlib import Path
+
 from actionguard.models import Finding, Severity
-from actionguard.utils.file_utils import iter_files, rel, read_text
+from actionguard.utils.file_utils import iter_files, read_text, rel
 
 DANGEROUS = {
     ".env",

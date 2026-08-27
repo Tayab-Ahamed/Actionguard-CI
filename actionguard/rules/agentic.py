@@ -1,5 +1,6 @@
-from pathlib import Path
 import re
+from pathlib import Path
+
 from actionguard.models import Finding, Severity
 from actionguard.utils.yaml_utils import load_yaml
 
@@ -62,10 +63,10 @@ def scan(repo_path: Path):
                 )
             runs = "\n".join(str(s.get("run", "")) for s in (job.get("steps", []) or []))
             writes_agent_commands = re.search(
-                r"(agent|llm|openai|anthropic|gemini).*?>\s*commands\.sh", runs, re.I | re.S
+                r"(agent|llm|openai|anthropic|gemini).*?>\s*commands\.sh", runs, re.IGNORECASE | re.DOTALL
             )
-            executes_commands = re.search(r"(?:bash|sh)\s+commands\.sh|\./commands\.sh", runs, re.I)
-            evals_agent_output = re.search(r'eval\s+["\']?\$\([^)]*(?:agent|llm)', runs, re.I)
+            executes_commands = re.search(r"(?:bash|sh)\s+commands\.sh|\./commands\.sh", runs, re.IGNORECASE)
+            evals_agent_output = re.search(r'eval\s+["\']?\$\([^)]*(?:agent|llm)', runs, re.IGNORECASE)
             if (writes_agent_commands and executes_commands) or evals_agent_output:
                 out.append(
                     Finding(

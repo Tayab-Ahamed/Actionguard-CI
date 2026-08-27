@@ -1,6 +1,7 @@
-from pathlib import Path
 import shutil
 import subprocess  # nosec B404
+from pathlib import Path
+
 from actionguard.config import TOOL_TIMEOUT
 from actionguard.models import Finding, Severity
 

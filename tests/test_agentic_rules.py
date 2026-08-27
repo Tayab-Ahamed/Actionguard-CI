@@ -1,4 +1,5 @@
 from pathlib import Path
+
 from actionguard.rules.agentic import scan
 
 

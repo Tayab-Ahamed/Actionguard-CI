@@ -1,7 +1,7 @@
-from pathlib import Path
-from datetime import datetime, timezone
 import html
 import json
+from datetime import datetime, timezone
+from pathlib import Path
 
 from actionguard.remediation import checklist, prioritize
 from actionguard.scoring import severity_counts

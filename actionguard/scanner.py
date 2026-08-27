@@ -1,6 +1,7 @@
 from pathlib import Path
+
+from actionguard.integrations import bandit, npm_audit, pip_audit, ruff, zizmor
 from actionguard.rules import agentic, artifacts, env_files, hygiene, secrets
-from actionguard.integrations import zizmor, ruff, bandit, npm_audit, pip_audit
 from actionguard.scoring import calculate_scores
 
 

@@ -1,4 +1,5 @@
 from pathlib import Path
+
 from actionguard.config import MAX_TEXT_BYTES, SKIP_DIRS
 
 

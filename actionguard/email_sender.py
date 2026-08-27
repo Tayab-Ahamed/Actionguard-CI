@@ -1,7 +1,7 @@
-from pathlib import Path
 import os
 import smtplib
 from email.message import EmailMessage
+from pathlib import Path
 
 
 def send_if_configured(repo_name, score, summary, html_path):

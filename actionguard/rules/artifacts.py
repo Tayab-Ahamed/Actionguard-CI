@@ -1,4 +1,5 @@
 from pathlib import Path
+
 from actionguard.models import Finding, Severity
 from actionguard.utils.yaml_utils import load_yaml
 

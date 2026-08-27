@@ -1,10 +1,11 @@
-from pathlib import Path
 import argparse
 import json
+from pathlib import Path
+
 from actionguard import __version__
-from actionguard.scanner import audit
-from actionguard.report import build_payload, write_html, write_json
 from actionguard.email_sender import send_if_configured
+from actionguard.report import build_payload, write_html, write_json
+from actionguard.scanner import audit
 
 
 def run_audit(args):

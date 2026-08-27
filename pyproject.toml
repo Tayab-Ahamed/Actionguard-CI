@@ -21,4 +21,11 @@ where=["."]
 include=["actionguard*"]
 
 [tool.ruff]
-line-length=120
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "FURB", "PLW"]
+ignore = ["BLE001", "E501"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["actionguard"]

@@ -1,5 +1,6 @@
-from pathlib import Path
 import re
+from pathlib import Path
+
 from actionguard.models import Finding, Severity
 from actionguard.utils.file_utils import iter_files, read_text, rel
 from actionguard.utils.redaction import redact
