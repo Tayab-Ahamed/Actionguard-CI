@@ -32,3 +32,22 @@ jobs:
     assert payload["summary"]["critical"] >= 1
     assert "Repository audit for" in html
     assert chr(0xE2) not in html
+
+
+def test_cli_scan_alias(tmp_path: Path):
+    json_path = tmp_path / "report_scan.json"
+    html_path = tmp_path / "report_scan.html"
+    assert main(["scan", str(tmp_path), "--json", str(json_path), "--html", str(html_path)]) == 0
+    assert json_path.exists()
+    assert html_path.exists()
+
+
+def test_cli_report_rerender(tmp_path: Path):
+    json_path = tmp_path / "report.json"
+    html_path = tmp_path / "report.html"
+    rerender_html = tmp_path / "rerender.html"
+
+    assert main(["audit", str(tmp_path), "--json", str(json_path), "--html", str(html_path)]) == 0
+    assert main(["report", "--json", str(json_path), "--html", str(rerender_html)]) == 0
+    assert rerender_html.exists()
+
