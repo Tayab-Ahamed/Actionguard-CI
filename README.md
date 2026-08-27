@@ -10,7 +10,7 @@
   <b>Detection &nbsp;➔&nbsp; Evidence &nbsp;➔&nbsp; Severity &nbsp;➔&nbsp; Suggested Fix &nbsp;➔&nbsp; Patch Preview &nbsp;➔&nbsp; HTML Report</b>
 </p>
 
-[![ActionGuard AutoAudit](https://github.com/Tayab-Ahamed/GSC26-Challenge3-010/actions/workflows/actionguard-autoaudit.yml/badge.svg?branch=main)](https://github.com/Tayab-Ahamed/GSC26-Challenge3-010/actions/workflows/actionguard-autoaudit.yml)
+[![ActionGuard AutoAudit](https://github.com/Tayab-Ahamed/Actionguard-CI/actions/workflows/actionguard-autoaudit.yml/badge.svg?branch=main)](https://github.com/Tayab-Ahamed/Actionguard-CI/actions/workflows/actionguard-autoaudit.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge&logo=opensourceinitiative&logoColor=white)](https://opensource.org/licenses/MIT)
 [![Python 3.10+](https://img.shields.io/badge/Python-3.10%2B-3776AB.svg?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![Ruff](https://img.shields.io/badge/Code%20Style-Ruff-261230.svg?style=for-the-badge&logo=ruff&logoColor=white)](https://github.com/astral-sh/ruff)
