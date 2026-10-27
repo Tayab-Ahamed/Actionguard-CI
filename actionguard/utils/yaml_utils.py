@@ -4,7 +4,10 @@ import yaml
 
 
 class ActionsLoader(yaml.SafeLoader):
-    pass
+    # Resolver tables are inherited by reference; keep workflow parsing local.
+    yaml_implicit_resolvers = {
+        ch: list(resolvers) for ch, resolvers in yaml.SafeLoader.yaml_implicit_resolvers.items()
+    }
 
 
 for ch, resolvers in list(ActionsLoader.yaml_implicit_resolvers.items()):
